@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+<!-- Header -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
 </head>
 
 <body>
+<!-- Navbar with Doggo Logo-->
     <nav class="navbar">
         <div id="logo">
           <a href="#">
@@ -22,6 +24,7 @@
         </div>
       </nav>
 
+<!-- Search bar -->
   <section class="hero is-info">
     <div class="hero-body">
         <div class="container">
@@ -44,12 +47,152 @@
     </div>
     </section>
 
-    <section>
-        <div class="container">
-            <!placeholder>
-
-        </div>
+    <!-- Wee tab with message and shopping cart -->
+    <section class="shopping-menu">
+    <div class="search-results">
+    <div class="box cta">
+      <p class="has-text-centered">
+        Here are your search results:
+      </p>
+    <div class="shopping-right"></div>
+      <button class="button is-medium btnshopping">
+        <span class="badge">3</span>
+        <span class="icon">
+          <i class="fa fa-shopping-cart"></i>
+        </span>
+        <span>Cart</span> 
+      </button>
+    </div>
+    </div>
     </section>
+    <section>
+    <div class="container">
+      <div class="shopping-cart">
+        <div class="shopping-cart-header">
+          <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+          <div class="shopping-cart-total">
+            <span class="lighter-text">Total:</span>
+            <span class="main-color-text">$2,229.97</span>
+          </div>
+        </div> 
+
+
+  <!-- Carousel with videos -->
+        <ul class="shopping-cart-items">
+          <li class="clearfix">
+            <img src="Assets/icons/ball.jpeg" alt="item1" />
+            <span class="item-name">Ball</span>
+            <span class="item-price">$849.9</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+    
+          <li class="clearfix">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+            <span class="item-name">KS Automatic Mechanic...</span>
+            <span class="item-price">$1,249.99</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+    
+          <li class="clearfix">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item3.jpg" alt="item1" />
+            <span class="item-name">Kindle, 6" Glare-Free To...</span>
+            <span class="item-price">$129.99</span>
+            <span class="item-quantity">Quantity: 01</span>
+          </li>
+        </ul>
+    
+        <a href="#" class="button">Checkout</a>
+      </div> <!--end shopping-cart -->
+    </div> <!--end container -->
+  </section>
+
+    <section class="container">
+      <div class="columns features">
+        <div class="column is-4">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="Assets/icons/ball.jpeg" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>Product 1</h4>
+                <p>Price $</p>
+                <span class="button is-link modal-button" data-target="modal-image2">Add to Cart</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="Assets/icons/Collar.jpg" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>Product 2</h4>
+                <p>Price $</p>
+                <span class="button is-link modal-button" data-target="modal-card">Add to Cart</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4 modal-button" data-target="modal-image">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://ultraimg.com/images/yHrYA.jpg" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>Click anywhere on card</h4>
+                <p>Imperdiet dui accumsan sit amet nulla facilisi morbi. Fusce ut placerat orci nulla pellentesque dignissim enim. Libero id faucibus nisl tincidunt eget nullam. Commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                <span class="button is-link modal-button" data-target="modal-image">Image modal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns features">
+        <div class="column is-4 modal-button" data-target="modal-card">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://ultraimg.com/images/yHrYA.jpg" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4>Click anywhere on card to <br>expand into modal card</h4>
+                <p>Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim nec. Integer enim neque volutpat ac tincidunt vitae semper quis. Accumsan tortor posuere ac ut consequat semper viverra nam.</p>
+                <span class="button is-link modal-button">Modal card</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card is-shady">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://source.unsplash.com/hLyd1LukQ7E" alt="butterfly image" class="modal-button" data-target="modal-image4">
+              </figure>
+            </div>
+            <div class="card-content  modal-button" data-target="modal-card2">
+              <div class="content">
+                <h4>Click anywhere on card to <br>expand into modal card - header image expands into bigger image</h4>
+                <p>Purus semper eget duis at tellus at urna condimentum mattis. Non blandit massa enim nec. Integer enim neque volutpat ac tincidunt vitae semper quis.</p>
+                <span class="button is-link modal-button">Modal card</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
    
   <div class="column is-8 is-offset-2">
@@ -71,7 +214,10 @@
   </div>
 </div>
 </section>
-    
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="./js/customer.js"></script>
+
 </body>
 
 </html>
