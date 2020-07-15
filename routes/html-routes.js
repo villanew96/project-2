@@ -14,9 +14,19 @@ module.exports = function(app) {
 
   // index route loads index.html
   app.get("/", function(req, res) {
+      console.log("index: ")
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
+  app.get("/delivery", function(req, res) {
+      console.log("Succesful login")
+    res.sendFile(path.join(__dirname, "../public/delivery.html"));
+  });
+
+  app.get("/customer", function(req, res) {
+    console.log("Succesful customer")
+  res.sendFile(path.join(__dirname, "../public/customer.html"));
+});
 //   // cms route loads cms.html
 //   app.get("/cms", function(req, res) {
 //     res.sendFile(path.join(__dirname, "../public/cms.html"));

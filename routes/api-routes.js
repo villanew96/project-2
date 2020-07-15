@@ -7,6 +7,7 @@
 
 // Requiring our Todo model
 var db = require("../models");
+var path = require("path");
 
 // Routes
 // =============================================================
@@ -19,6 +20,33 @@ module.exports = function(app) {
       res.json(data);
     });
     // Add sequelize code to find all posts, and return them to the user with res.json
+  });
+
+  app.post("/api/login",function(req,res){
+      db.users.findOne({
+          where: {
+              name:req.body.userName,
+          }
+      }).then(function(dbUser){
+          console.log("dbUsr: ",dbUser.type);
+        validation = validatePassword(dbUser);
+        if (validation){
+            res.json(dbUser.type)
+        } else{
+        res.json(validation)
+        }
+      });
+      
+      function validatePassword(info){
+          var validation;
+          console.log("passwords: ", info.password, req.body.userPassword);
+          if (info.password == req.body.userPassword){
+            validation = true;
+        } else {
+            validation = false;
+        }
+        return validation;
+      };
   });
 
 };
