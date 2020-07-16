@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "strongpassword2020",
+    "password": "Lennon1994",
     "database": "onlineStore_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
