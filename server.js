@@ -23,10 +23,18 @@ app.use(express.static(__dirname + "/public"));
 
 // Routes
 // =============================================================
+
+// Handlebars crap
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
+
+app.get("/", function(req, res){
+  res.render('home');
+});
+
+
 
 // require("./controllers/html_controller.js")(app);
 require("./routes/api-routes.js")(app);
