@@ -1,13 +1,17 @@
 var express = require("express");
-var path = require("path");
+//var path = require("path");
 var router = express.Router();
 
-router.get("/", function (req, res) {
- res.render("index", {})
+var products = require("../models/product")
+
+router.get("/customer", function (req, res) {
+ products.getProducts(function(data){
+     var pdctObject ={
+         products: data
+     };
+     console.log(pdctObject);
+     res.render("customer", pdctObject);
+ })
 });
 
-module.exports = function(app){
-    app.get("/", function (req, res) {
-        res.sendFile(path.join(__dirname, "./views/index.handlebars"))
-    })
-};
+module.exports = router;

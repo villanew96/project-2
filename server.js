@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
+// const publicPath = path.join(__dirname, '/public');
 app.use(express.static(__dirname + "/public"));
 
 // Routes
@@ -27,15 +28,12 @@ app.use(express.static(__dirname + "/public"));
 // Handlebars crap
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs());
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.get("/", function(req, res){
-  res.render('home');
-});
+var routes = require("./controllers/html_controller.js");
 
-
-
+app.use(routes);
 // require("./controllers/html_controller.js")(app);
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);

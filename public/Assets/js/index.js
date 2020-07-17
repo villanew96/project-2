@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  
   //Main login to send to the backend the user info in index.html
   $(".submitButton").on("click", function (event) {
     event.preventDefault();
@@ -27,8 +26,15 @@ $(document).ready(function () {
       }
     });
   }
-  //end of login 
+  //end of login
 
+  // route to signup
+  $(".signup").on("click", function (event) {
+    event.preventDefault();
+    $.post("/signup",function (response){
+      window.location.replace("/signup");
+    })
+  });
   //sign up new users sending the data to the backend in signup.html
   $(".newUser").on("click", function (event) {
     event.preventDefault();
@@ -38,7 +44,7 @@ $(document).ready(function () {
       userAddress: $("#address").val().trim(),
       userType: $("#type").val().trim(),
     };
-    console.log("user sign up clicked", userSignup)
+    console.log("user sign up clicked", userSignup);
     signUpValidation(userSignup);
   });
 
@@ -47,25 +53,24 @@ $(document).ready(function () {
     $.post("/api/signup", info, function (response) {
       if (response) {
         newUser = suggestUserName(info);
-        console.log("User already exist, try: ",newUser);
+        console.log("User already exist, try: ", newUser);
       } else {
         console.log("User registered succesfuly");
-        alert("User created succesfully")
+        alert("User created succesfully");
       }
     });
   }
 
-  function suggestUserName(info){
-    var numbers = [1,2,3,4,5,6,7,8,9,0]
+  function suggestUserName(info) {
+    var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
     var newName = info.userName;
-    for (i=0; i<4; i++){
-      newName += Math.floor(Math.random()*10)
+    for (i = 0; i < 4; i++) {
+      newName += Math.floor(Math.random() * 10);
     }
-    return newName
+    return newName;
   }
 
   // end of sign up
-
 
   var products;
 

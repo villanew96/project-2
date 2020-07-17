@@ -12,7 +12,10 @@ $(document).ready(function () {
   getProducts();
 
   function getProducts() {
-    $.get("/api/products", renderProducts);
+    $.get("/api/products", function (info){
+     //renderProducts(info) 
+     return info;
+    });
   }
 
   function renderProducts(data) {
