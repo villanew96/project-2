@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="../public/assets/css/style.css">
-    <link rel="icon" type="image" href="../public/assets/img/paw.png" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="icon" type="image" href="./assets/img/paw.png" />
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     <nav class="navbar">
         <div id="logo">
           <a href="#">
-            <img src="../public/assets/img/logo.png" alt="Doggo" class="img"/>
+            <img src="./assets/img/logo.png" alt="Doggo" class="img"/>
           </a>
         </div>
       </nav>
@@ -31,15 +31,15 @@
             <div class="card">
                 <div class="card-content">
                     <div class="content">
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input is-large" type="search"/>
-                            <span class="icon is-medium is-left">
-                                <i class="fa fa-search"></i>
-                            </span>
-                            <span class="icon is-medium is-right">
-                                <i class="fa fa-empire"></i>
-                            </span>
-                        </div>
+                      <div class="control has-icons-left has-icons-right">
+                        <input class="input is-large" type="search" placeholder="search" value=""/>
+                        <span class="icon is-medium is-left">
+                            <i class="fa fa-paw"></i>
+                        </span>
+                        <span class="icon is-medium is-right">
+                            <i class="fa fa-search"></i>
+                        </span>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -47,24 +47,27 @@
     </div>
     </section>
 
-    <!-- Wee tab with message and shopping cart -->
+    <!-- Wee tab with message and shopping cart - memory: local storage - save products or ids - number function elements in array allow user delete -->
     <section class="shopping-menu">
     <div class="search-results">
     <div class="box cta">
       <p class="has-text-centered">
         Here are your search results:
       </p>
-    <div class="shopping-right"></div>
-      <button class="button is-medium btnshopping">
-        <span class="badge">3</span>
-        <span class="icon">
-          <i class="fa fa-shopping-cart"></i>
-        </span>
-        <span>Cart</span> 
-      </button>
     </div>
-    </div>
-    </section>
+
+    <div class="shopping-right">
+    <button class="button is-medium btnshopping">
+      <span class="badge">3</span>
+      <span class="icon">
+        <i class="fa fa-shopping-cart"></i>
+      </span>
+      <span>Cart</span> 
+    </button>
+  </div>
+  </div>
+  </section>
+
     <section>
     <div class="container">
       <div class="shopping-cart">
@@ -81,7 +84,7 @@
         <ul class="shopping-cart-items">
           <li class="clearfix">
             <figure class="image is-64x64">
-            <img src="../public/assets/img/icons/ball.jpeg" alt="item1" />
+            <img src="./assets/img/icons/ball.jpeg" alt="item1" />
             </figure>
             <span class="item-name">Ball</span>
             <span class="item-price">$849.9</span>
@@ -90,7 +93,7 @@
     
           <li class="clearfix">
             <figure class="image is-48x48">
-              <img src="../public/assets/img/icons/Collar.jpg" alt="item2" />
+              <img src="./assets/img/icons/Collar.jpg" alt="item2" />
               </figure>
             <span class="item-name">Kong</span>
             <span class="item-price">$1,249.99</span>
@@ -99,7 +102,7 @@
     
           <li class="clearfix">
             <figure class="image is-64x64">
-              <img src="../public/assets/img/icons/hueso.jpg" alt="item3" />
+              <img src="./assets/img/icons/hueso.jpg" alt="item3" />
               </figure>
             <span class="item-name">Tug</span>
             <span class="item-price">$129.99</span>
@@ -112,13 +115,13 @@
     </div> <!--end container -->
 
   </section>
-    <section class="container">
+    <section class="container col1">
       <div class="columns features">
-        <div class="column is-4">
+        <!-- <div class="column is-4">
           <div class="card is-shady">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="../public/assets/img/icons/ball.jpeg" alt="Placeholder image" class="modal-button" data-target="modal-image2">
+                <img src="./assets/img/icons/ball.jpeg" alt="Placeholder image" class="modal-button" data-target="modal-image2">
               </figure>
             </div>
             <div class="card-content">
@@ -134,7 +137,7 @@
           <div class="card is-shady">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="../public/assets/img/icons/bleu leash.jpg" alt="Placeholder image">
+                <img src="./assets/img/icons/bleu leash.jpg" alt="Placeholder image">
               </figure>
             </div>
             <div class="card-content">
@@ -150,7 +153,7 @@
           <div class="card is-shady">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="../public/assets/img/icons/dog brush.jpg" alt="Placeholder image">
+                <img src="./assets/img/icons/dog brush.jpg" alt="Placeholder image">
               </figure>
             </div>
             <div class="card-content">
@@ -161,14 +164,14 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="columns features">
-        <div class="column is-4 modal-button" data-target="modal-card">
+        <!-- <div class="column is-4 modal-button" data-target="modal-card">
           <div class="card is-shady">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="../public/assets/img/icons/hueso.jpg" alt="Placeholder image">
+                <img src="./assets/img/icons/hueso.jpg" alt="Placeholder image">
               </figure>
             </div>
             <div class="card-content">
@@ -184,7 +187,7 @@
           <div class="card is-shady">
             <div class="card-image">
               <figure class="image is-4by3">
-                <img src="../public/assets/img/icons/manga.jpg" alt="butterfly image" class="modal-button" data-target="modal-image4">
+                <img src="./assets/img/icons/manga.jpg" alt="butterfly image" class="modal-button" data-target="modal-image4">
               </figure>
             </div>
             <div class="card-content  modal-button" data-target="modal-card2">
@@ -195,7 +198,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
   </div>
@@ -222,7 +225,7 @@
 </section>
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<script src="../public/assets/js/customer.js"></script>
+<script src="./assets/js/customer.js"></script>
 
 </body>
 

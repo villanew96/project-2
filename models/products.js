@@ -3,16 +3,25 @@ module.exports = function(sequelize, DataTypes) {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
         },
       name: {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      category: {
+      picture: {
         type: DataTypes.STRING,
-        defaultValue: "Dogs"
-      }
+        allowNull: false,
+      },
+      price: {
+        type:DataTypes.DECIMAL(10,2),
+        allowNull: false,
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
+      },
+      
     });
     return Products;
   };

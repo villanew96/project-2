@@ -104,9 +104,15 @@
 
  
 /*trolley*/
-
-.btnshopping {
-  float: right;
+.shopping-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-right:5rem;
+}
+  
+.search-results{
+  display: flex;
+  flex-direction: column;
 }
 
 .badge {

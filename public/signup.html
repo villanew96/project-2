@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-    <link rel="stylesheet" type="text/css" href="../public/assets/css/style.css">
-    <link rel="icon" type="image" href="../public/assets/img/paw.png" />
+    <link rel="stylesheet" type="text/css" href="./Assets/css/style.css">
+    <link rel="icon" type="image" href="./Assets/img/paw.png" />
 </head>
 
 <body>
   <nav class="navbar">
     <div id="logo">
       <a href="#">
-        <img src="../public/assets/img/logo.png" alt="Doggo" class="img"/>
+        <img src="./Assets/img/logo.png" alt="Doggo" class="img"/>
       </a>
     </div>
   </nav>
@@ -29,7 +29,7 @@
               <div class="field">
                 <label class="label">Username</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-success" type="text" placeholder="Text input" value="Username">
+                  <input class="input is-success" id="name" type="text" placeholder="Username">
                   <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                   </span>
@@ -37,13 +37,13 @@
                     <i class="fas fa-check"></i>
                   </span>
                 </div>
-                <p class="help is-success">This username is available</p>
+                <p class="help is-success hide-error">This username is available</p>
               </div>
               
               <div class="field">
                 <label class="label">Password</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-danger" type="email" placeholder="Email input" value="Password">
+                  <input class="input is-danger" id="password" type="text" placeholder="Password">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
@@ -51,14 +51,28 @@
                     <i class="fas fa-exclamation-triangle"></i>
                   </span>
                 </div>
-                <p class="help is-danger">This email is invalid</p>
+                <p class="help is-danger hide-error">This password is invalid</p>
+              </div>
+
+              <div class="field">
+                <label class="label">Address</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-danger" id="address" placeholder="Address Input" value="Address">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </span>
+                </div>
+                <p class="help is-success">This address is invalid</p>
               </div>
               
               <div class="field">
                 <label class="label">Please select one of the following:</label>
                 <div class="control">
-                  <div class="select">
-                    <select>
+                  <div class="select" >
+                    <select id="type" placeholder="Type" value="Type">
                       <option value="customer">Customer</option>
                       <option value="delivery">Delivery Person</option>
                     </select>
@@ -68,7 +82,7 @@
               
               <div class="field is-grouped">
                 <div class="control">
-                  <button class="button is-link submit">Submit</button>
+                  <button class="button is-link submit newUser">Submit</button>
                 </div>
                 <div class="control">
                   <button class="button is-link is-light cancel">Cancel</button>
@@ -94,6 +108,8 @@
           </div>
         </div>
       </section>
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="./Assets/js/index.js"></script>
 </body>
 
 </html>
