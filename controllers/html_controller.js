@@ -1,17 +1,18 @@
-var express = require("express");
-//var path = require("path");
-var router = express.Router();
+// var express = require("express");
+// //var path = require("path");
+// var router = express.Router();
 
-var products = require("../models/product")
+// var products = require("../routes/api-routes.js")
 
-router.get("/customer", function (req, res) {
- products.getProducts(function(data){
-     var pdctObject ={
-         products: data
-     };
-     console.log(pdctObject);
-     res.render("customer", pdctObject);
- })
-});
+// router.get("/customer", function (req, res) {
+//     console.log("route to get products")
+//  products.getProducts1(function(data){
+//      var pdctObject ={
+//          products: data
+//      };
+//      console.log(pdctObject);
+//      res.render("customer", pdctObject);
+//  })
+// });
 
-module.exports = router;
+// module.exports = router;

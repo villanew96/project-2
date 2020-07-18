@@ -9,15 +9,22 @@
 var db = require("../models");
 var path = require("path");
 
+console.log("api-routes");
 
 // Routes
 // =============================================================
 module.exports = function (app) {
   // GET route for getting all of the products
-  app.get("/api/products", function (req, res) {
-    db.products.findAll({}).then(function (data) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(data);
+ 
+  app.get("/api/products/:product", function (req, res) {
+    
+    db.products.findAll({where:{
+      name: req.params.product
+    }}).then(function (data) {
+      console.log("Succesful search")      
+        console.log(data.dataValues);
+      res.render("customer", {data})
+      // res.json(data)
     });
     // Add sequelize code to find all posts, and return them to the user with res.json
   });
@@ -89,12 +96,11 @@ module.exports = function (app) {
 
   // products sections, returns the products in the database
 
-  app.get("/api/products/",function(req, res){
-    db.products.findAll({}).then(function(dbProducts){
-res.json(dbProducts)
+  app.get("/api/products/", function (req, res) {
+    db.products.findAll({}).then(function (dbProducts) {
+      res.json(dbProducts);
     });
-  })
+  });
 
   // products section ends
-
 };

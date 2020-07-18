@@ -1,11 +1,11 @@
 // *********************************************************************************
 // html-routes.js - this file offers a set of routes for sending users to the various html pages
 // *********************************************************************************
-
+var db = require("../models");
 // Dependencies
 // =============================================================
 var path = require("path");
-
+var product = require("./api-routes")
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -30,8 +30,16 @@ module.exports = function(app) {
 
   app.get("/customer", function(req, res) {
     console.log("Succesful customer")
-  // res.sendFile(path.join(__dirname, "../public/customer.html"));
-  res.render("customer")
+      db.products.findAll({}).then(function (data) {
+       
+        console.log(data[0].dataValues);
+      res.render("customer", {data});
+  })
+});
+
+app.get("/customer/search", function(req, res) {
+  console.log("Succesful customer", req.body)
+    res.render("customer");
 });
 
 app.get("/signup", function(req, res) {

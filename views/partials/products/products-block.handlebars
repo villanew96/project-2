@@ -1,19 +1,18 @@
-<li>
+
     <div class="column is-4">
         <div class="card is-shady">
             <div class="card-image">
                 <figure class="image is-4by3">
-                    <img src="{{picture}}" alt="{{name}}" class="modal-button" data-target="modal-image2">
+                    <img src="{{values.picture}}" alt="{{values.name}}" class="modal-button" data-target="modal-image2">
                 </figure>
             </div>
             <div class="card-content">
                 <div class="content">
-                    <h4>{{name}}</h4>
-                    <p>Price ${{price}}</p>
-                    <p>Stock ${{quantity}}</p>
+                    <h4>{{values.name}}</h4>
+                    <p>Price ${{values.price}}</p>
+                    <p>Stock {{values.quantity}}</p>
                     <span class="button is-link modal-button" data-target="modal-image2">Add to Cart</span>
                 </div>
             </div>
         </div>
     </div>
-</li>

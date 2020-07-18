@@ -1,22 +1,27 @@
+
 //makes button appear and disappear
 $(document).ready(function () {
   $(".btnshopping").on("click", function () {
     console.log("click");
     $(".shopping-cart").fadeToggle("fast");
+
   });
 
   console.log($(".shopping-right"));
 
   //generate cards and add them to the DOM per DB queries
 
-  getProducts();
-
-  function getProducts() {
-    $.get("/api/products", function (info){
-     //renderProducts(info) 
-     return info;
+  //getProducts();
+  $(".inputSearch").on("click",function(event) {
+  
+    var search = $(".inputValue").val().trim();
+    console.log(search)
+    $.get(`/customer/search`, search, function (info){
+     //renderProducts(info)
+    //  console.log(info) 
+    //  return info;
     });
-  }
+  });
 
   function renderProducts(data) {
     console.log(data);

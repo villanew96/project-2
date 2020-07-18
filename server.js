@@ -20,7 +20,7 @@ app.use(express.json());
 
 // Static directory
 // const publicPath = path.join(__dirname, '/public');
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname +"/public"));
 
 // Routes
 // =============================================================
@@ -31,10 +31,10 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/html_controller.js");
+// var routes = require("./controllers/html_controller.js");
 
-app.use(routes);
-// require("./controllers/html_controller.js")(app);
+// app.use(routes);
+//require("./controllers/html_controller.js")(app);
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
