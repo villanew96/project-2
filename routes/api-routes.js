@@ -18,14 +18,14 @@ module.exports = function (app) {
  
   app.get("/api/products/:product", function (req, res) {
     
-    db.products.findAll({where:{
-      name: req.params.product
-    }}).then(function (data) {
-      console.log("Succesful search")      
-        console.log(data.dataValues);
-      res.render("customer", {data})
-      // res.json(data)
-    });
+    // db.products.findAll({where:{
+    //   name: req.params.product
+    // }}).then(function (data) {
+    //   console.log("Succesful search")      
+    //     console.log(data);
+    //   // res.render("customer", {data})
+      res.redirect(`/customer?flag=filter&search=${req.params.product}`)
+    // });
     // Add sequelize code to find all posts, and return them to the user with res.json
   });
 

@@ -1,10 +1,8 @@
-
 //makes button appear and disappear
 $(document).ready(function () {
   $(".btnshopping").on("click", function () {
     console.log("click");
     $(".shopping-cart").fadeToggle("fast");
-
   });
 
   console.log($(".shopping-right"));
@@ -12,14 +10,12 @@ $(document).ready(function () {
   //generate cards and add them to the DOM per DB queries
 
   //getProducts();
-  $(".inputSearch").on("click",function(event) {
-  
+  $(".inputSearch").on("click", function (event) {
     var search = $(".inputValue").val().trim();
-    console.log(search)
-    $.get(`/customer/search`, search, function (info){
-     //renderProducts(info)
-    //  console.log(info) 
-    //  return info;
+    console.log(search);
+    $.get(`/api/products/${search}`, function (info) {
+      // console.log(info)
+      // window.location.reload();
     });
   });
 
@@ -31,10 +27,10 @@ $(document).ready(function () {
     var quantity = 0;
     var card = "";
     var newDiv = $("<div>");
-    newDiv.addClass("columns features")
+    newDiv.addClass("columns features");
 
     for (i = 0; i < data.length; i++) {
-        console.log(i);
+      console.log(i);
       picture = data[i].picture;
       name = data[i].name;
       price = data[i].price;
@@ -57,10 +53,10 @@ $(document).ready(function () {
                 </div>
             </div>`;
       newDiv.append(card);
-      if ((1+i)%3==0 || i==(data.length-1)){
-          $(".col1").append(newDiv);
-          newDiv = $("<div>");
-          newDiv.addClass("columns features")
+      if ((1 + i) % 3 == 0 || i == data.length - 1) {
+        $(".col1").append(newDiv);
+        newDiv = $("<div>");
+        newDiv.addClass("columns features");
       }
     }
   }
