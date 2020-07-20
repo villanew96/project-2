@@ -26,7 +26,7 @@ module.exports = function (app) {
     // res.sendFile(path.join(__dirname, "../public/delivery.html"));
     res.render("delivery");
   });
-
+  
   app.get("/customer", function (req, res) {
     if (req.query.flag) {
       console.log(req.query);
@@ -38,24 +38,35 @@ module.exports = function (app) {
         })
         .then(function (data) {
           console.log("Succesful search");
-          console.log(data);
-          res.location("/customer")
+          console.log(data[0].dataValues);
+          // res.location("/customer")
           res.render("customer", { data });
         });
     } else {
       console.log("Succesful customer");
       db.products.findAll({}).then(function (data) {
-        console.log(data[0].dataValues);
+        console.log("foud ",data.length, " items in search, rendering...");
         res.render("customer", { data });
       });
     }
   });
 
-  // app.get("/customer/search", function(req, res) {
-  //   console.log("Succesful customer", req._parsedOriginalUrl.query)
-
-  //   res.render("customer", {req._parsedOriginalUrl.query})
-  // });
+  app.get("/customer/search", function(req, res) {
+    console.log("Succesful Search", req.query.flag)
+    console.log(req.query);
+    db.products
+      .findAll({
+        where: {
+          name: req.query.search,
+        },
+      })
+      .then(function (data) {
+        console.log("Succesful search");
+        console.log(data[0].dataValues);
+        // res.location("/customer/search")
+        res.render("customer", { data });
+      });
+  });
 
   app.get("/signup", function (req, res) {
     console.log("Sign Up");

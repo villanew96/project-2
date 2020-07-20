@@ -24,8 +24,9 @@ module.exports = function (app) {
     //   console.log("Succesful search")      
     //     console.log(data);
     //   // res.render("customer", {data})
-      res.redirect(`/customer?flag=filter&search=${req.params.product}`)
-    // });
+      res.redirect(`/customer/search?flag=filter&search=${req.params.product}`)
+    
+      // });
     // Add sequelize code to find all posts, and return them to the user with res.json
   });
 

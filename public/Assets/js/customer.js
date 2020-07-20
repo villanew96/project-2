@@ -13,9 +13,8 @@ $(document).ready(function () {
   $(".inputSearch").on("click", function (event) {
     var search = $(".inputValue").val().trim();
     console.log(search);
-    $.get(`/api/products/${search}`, function (info) {
-      // console.log(info)
-      // window.location.reload();
+    window.location.replace("/customer/search");
+    $.get(`/api/products/${search}`, function () {
     });
   });
 
