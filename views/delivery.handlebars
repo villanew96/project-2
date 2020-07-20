@@ -1,52 +1,55 @@
-<section class="container">
-    <div class="columns features delivery-status">
-        <div class="column is-4">
-            <div class="card is-shady">
-                <div class="card-content">
-                    <div class="content">
-                        <h4>Waiting to be delivered </h4>
-                        {{#each data}}
-                        {{#if this.dataValues.placed_order}}
-                        {{this.dataValues.products}}
-                        {{/if}}
-                        {{!-- {{> products/products-block values=this.dataValues}} --}}
-                        {{/each}}
-                    </div>
+<div class="row">
+    <section class="container is-fluid">
+        <div class="columns is-multiline features delivery-status">
+            <div class="column is-4">
+                <div class="card is-shady">
+                    <div class="card-content">
+                        <div class="content">
+                            <h4>Waiting to be delivered </h4>
+                            {{#each data}}
+                            {{#if this.dataValues.placed_order}}
+                            {{this.dataValues.products}}
+                            {{> orders/orders-block values=this.dataValues}}
+                            {{/if}}
+                            {{/each}}
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-4">
+                <div class="card is-shady">
+                    <div class="card-content">
+                        <div class="content">
+                            <h4>In Progress</h4>
+                            {{#each data}}
+                            {{#if this.dataValues.in_transit}}
+                            {{this.dataValues.products}}
+                            {{> orders/orders-block values=this.dataValues}}
+                            {{/if}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4">
+                <div class="card is-shady">
+                    <div class="card-content">
+                        <div class="content">
+                            <h4> Done </h4>
+                            {{#each data}}
+                            {{#if this.dataValues.completed}}
+                            {{this.dataValues.products}}
+                            {{> orders/orders-block values=this.dataValues}}
+                            {{/if}}
+                            {{/each}}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="column is-4">
-        <div class="card is-shady">
-            <div class="card-content">
-                <div class="content">
-                    <h4>In Progress</h4>
-                    {{#each data}}
-                        {{#if this.dataValues.in_transit}}
-                        {{this.dataValues.products}}
-                        {{/if}}
-                        {{!-- {{> products/products-block values=this.dataValues}} --}}
-                        {{/each}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="column is-4">
-        <div class="card is-shady">
-            <div class="card-content">
-                <div class="content">
-                    <h4> Done </h4>
-                    {{#each data}}
-                        {{#if this.dataValues.completed}}
-                        {{this.dataValues.products}}
-                        {{/if}}
-                        {{!-- {{> products/products-block values=this.dataValues}} --}}
-                        {{/each}}
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <script src="../public/Assets/js/delivery.js"></script>
+    </section>
+</div>
+<script src="./Assets/js/delivery.js"></script>
 </section>

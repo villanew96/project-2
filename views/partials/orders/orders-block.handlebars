@@ -1,0 +1,39 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong>Order ID:{{values.id}} </strong> <small>Date: {{values.createdAt}}</small> <small>31m</small>
+          <br>
+          Products description:
+          {{values.products}}
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          {{#if this.dataValues.placed_order}}
+          <a class="level-item placed_order" aria-label="take to deliver" value="{{values.id}}">
+            <span class="icon is-small">
+              <i class="fas fa-2x fa-truck-loading" aria-hidden="true"></i>
+            </span>
+          </a>
+          {{/if}}
+          {{#if this.dataValues.in_transit}}
+          <a class="level-item in_transit" aria-label="take to deliver" value="{{values.id}}">
+            <span class="icon is-small">
+              <i class="fas fa-2x fa-truck" aria-hidden="true"></i>
+            </span>
+          </a>
+          {{/if}}
+          {{#if this.dataValues.completed}}
+          <a class="level-item completed" aria-label="take to deliver" value="{{values.id}}">
+            <span class="icon is-small">
+              <i class="fas fa-2x fa-flag-checkered" aria-hidden="true"></i>
+            </span>
+          </a>
+          {{/if}}
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>

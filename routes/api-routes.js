@@ -15,19 +15,9 @@ console.log("api-routes");
 // =============================================================
 module.exports = function (app) {
   // GET route for getting all of the products
- 
+
   app.get("/api/products/:product", function (req, res) {
-    
-    // db.products.findAll({where:{
-    //   name: req.params.product
-    // }}).then(function (data) {
-    //   console.log("Succesful search")      
-    //     console.log(data);
-    //   // res.render("customer", {data})
-      res.redirect(`/customer/search?flag=filter&search=${req.params.product}`)
-    
-      // });
-    // Add sequelize code to find all posts, and return them to the user with res.json
+    res.redirect(`/customer/search?flag=filter&search=${req.params.product}`);
   });
 
   // Login route, gets the info from the front end, then sends a query to the databse and compare, if succesfull sends true else false
@@ -104,4 +94,69 @@ module.exports = function (app) {
   });
 
   // products section ends
+
+  //change delivery status for an order
+  app.post("/api/delivery/placed", function (req, res) {
+    console.log(req.body.id)
+    db.orders
+      .update(
+        {
+          placed_order: false,
+          in_transit: true,
+          completed: false,
+        },
+        {
+          where: {
+            id: req.body.id,
+          },
+        }
+      )
+      .then(function (dbUser) {
+        console.log("order modified");
+        res.render("delivery")
+      });
+  });
+
+  app.post("/api/delivery/transit", function (req, res) {
+    console.log(req.body.id)
+    db.orders
+      .update(
+        {
+          placed_order: false,
+          in_transit: false,
+          completed: true,
+        },
+        {
+          where: {
+            id: req.body.id,
+          },
+        }
+      )
+      .then(function (dbUser) {
+        console.log("order modified");
+        res.render("delivery")
+      });
+  });
+
+  app.post("/api/delivery/complete", function (req, res) {
+    console.log(req.body.id)
+    db.orders
+      .update(
+        {
+          placed_order: false,
+          in_transit: false,
+          completed: false,
+        },
+        {
+          where: {
+            id: req.body.id,
+          },
+        }
+      )
+      .then(function (dbUser) {
+        console.log("order modified");
+        res.render("delivery")
+      });
+  });
+  // delivery section end
 };
