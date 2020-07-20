@@ -23,10 +23,14 @@ module.exports = function (app) {
 
   app.get("/delivery", function (req, res) {
     console.log("Succesful login");
-    // res.sendFile(path.join(__dirname, "../public/delivery.html"));
-    res.render("delivery");
+    db.orders.findAll({}).then(function (data) {
+      console.log("found ", data.length, " items in search, rendering...");
+      console.log(data);
+      res.render("delivery", { data });
+    });
+    // res.render("delivery");
   });
-  
+
   app.get("/customer", function (req, res) {
     if (req.query.flag) {
       console.log(req.query);
@@ -45,14 +49,14 @@ module.exports = function (app) {
     } else {
       console.log("Succesful customer");
       db.products.findAll({}).then(function (data) {
-        console.log("foud ",data.length, " items in search, rendering...");
+        console.log("found ", data.length, " items in search, rendering...");
         res.render("customer", { data });
       });
     }
   });
 
-  app.get("/customer/search", function(req, res) {
-    console.log("Succesful Search", req.query.flag)
+  app.get("/customer/search", function (req, res) {
+    console.log("Succesful Search", req.query.flag);
     console.log(req.query);
     db.products
       .findAll({

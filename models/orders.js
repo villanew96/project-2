@@ -18,8 +18,14 @@ module.exports = function(sequelize, DataTypes) {
         type:DataTypes.DECIMAL(10,2),
         allowNull: false,
       },
-      status: {
-        type: DataTypes.STRING,
+      placed_order: {
+        type: DataTypes.BOOLEAN,
+      },
+      in_transit: {
+        type: DataTypes.BOOLEAN,
+      },
+      completed: {
+        type: DataTypes.BOOLEAN,
       },
       
     });
