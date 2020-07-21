@@ -1,17 +1,15 @@
 //makes button appear and disappear
-var toggle = 0;
 $(document).ready(function () {
   $(".btnshopping").on("click", function (event) {
     event.preventDefault()
-    // $(".shopping-cart").fadeToggle("fast");
-    // if (toggle == 0){
-      $(".shopping-cart").attr("style","display:block")
-    //   toggle=1;
-    // } else {
-    //   $(".shopping-cart").attr("style","display:none")
-    //   toggle=0;
-    // }
-    console.log(toggle);
+    $(".shopping-cart").attr("style","display:block")
+
+      // $(".shopping-cart").toggle(function(){
+      //   $(".shopping-cart").attr("style","display:block")
+      // }, function(){
+      //   $(".shopping-cart").attr("style","display:none")
+      // });
+ 
   });
 
   console.log($(".shopping-right"));

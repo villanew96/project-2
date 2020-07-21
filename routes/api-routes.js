@@ -97,7 +97,7 @@ module.exports = function (app) {
 
   //change delivery status for an order
   app.post("/api/delivery/placed", function (req, res) {
-    console.log(req.body.id)
+    console.log(req.body.id);
     db.orders
       .update(
         {
@@ -113,12 +113,12 @@ module.exports = function (app) {
       )
       .then(function (dbUser) {
         console.log("order modified");
-        res.render("delivery")
+        res.render("delivery");
       });
   });
 
   app.post("/api/delivery/transit", function (req, res) {
-    console.log(req.body.id)
+    console.log(req.body.id);
     db.orders
       .update(
         {
@@ -134,12 +134,12 @@ module.exports = function (app) {
       )
       .then(function (dbUser) {
         console.log("order modified");
-        res.render("delivery")
+        res.render("delivery");
       });
   });
 
   app.post("/api/delivery/complete", function (req, res) {
-    console.log(req.body.id)
+    console.log(req.body.id);
     db.orders
       .update(
         {
@@ -155,8 +155,69 @@ module.exports = function (app) {
       )
       .then(function (dbUser) {
         console.log("order modified");
-        res.render("delivery")
+        res.render("delivery");
       });
   });
   // delivery section end
+  // adding items to Cart section
+  app.post("/api/cart", function (req, res) {
+    console.log(req.body.id);
+    db.products
+      .findOne({
+        where: {
+          id: req.body.id,
+        },
+      })
+      .then(function (response) {
+        console.log(response.dataValues.name);
+        db.carts
+          .create({
+            id: response.dataValues.id,
+            name: response.dataValues.name,
+            picture: response.dataValues.picture,
+            price: response.dataValues.price,
+            quantity: 1,
+          })
+          .then(function () {
+            res.render("customer");
+          });
+      });
+  });
+  // cart ends
+  app.post("/api/checkout", function (req, res) {
+    db.carts.findAll({}).then(function (data) {
+      var orderTotal = 0;
+      for (i = 0; i < data.length; i++) {
+        orderTotal += parseInt(data[i].price);
+      }
+
+      var items = "";
+      for (j = 0; j < data.length; j++) {
+        items += data[j].name;
+        items += ", ";
+      }
+      db.orders
+        .create({
+          user_id: 1,
+          products: items,
+          total_price: orderTotal,
+          placed_order: true,
+          in_transit: false,
+          completed: false,
+        })
+        .then(function () {
+          db.carts
+            .destroy({
+              where: {},
+              truncate: true,
+            })
+            .then(function (data) {
+              res.redirect("/customer");
+            });
+        });
+    });
+  });
+  //checkout section
+
+  //checlout ends
 };

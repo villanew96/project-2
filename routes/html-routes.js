@@ -28,7 +28,6 @@ module.exports = function (app) {
       console.log(data);
       res.render("delivery", { data });
     });
-    // res.render("delivery");
   });
 
   app.get("/customer", function (req, res) {
@@ -50,7 +49,16 @@ module.exports = function (app) {
       console.log("Succesful customer");
       db.products.findAll({}).then(function (data) {
         console.log("found ", data.length, " items in search, rendering...");
-        res.render("customer", { data });
+        db.carts.findAll({}).then(function (cartItems) {
+          console.log("found ", cartItems.length, " items in search, rendering...");
+          var cartTotal= 0;
+          for (i=0;i<cartItems.length;i++){
+            cartTotal += parseInt(cartItems[i].price)
+          }
+          var itemsNum = cartItems.length;
+          res.render("customer", { data, cartItems, cartTotal, itemsNum });
+        });
+        // res.render("customer", { data });
       });
     }
   });

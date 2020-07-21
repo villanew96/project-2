@@ -34,11 +34,17 @@
 
     <div class="shopping-right">
       <button class="button is-medium btnshopping">
-        <span class="badge">3</span>
+        <span class="badge">{{itemsNum}}</span>
         <span class="icon">
           <i class="fa fa-shopping-cart"></i>
         </span>
         <span>Cart</span>
+      </button>
+      <button class="button is-medium checkoutBtn">
+        <span class="icon">
+          <i class="fa fas fa-money-bill-wave"></i>
+        </span>
+        <span>Checkout</span>
       </button>
     </div>
   </div>
@@ -48,45 +54,22 @@
   <div class="container">
     <div class="shopping-cart" style="display:none">
       <div class="shopping-cart-header">
-        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span>
+        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{itemsNum}}</span>
         <div class="shopping-cart-total">
           <span class="lighter-text">Total:</span>
-          <span class="main-color-text">$2,229.97</span>
+          <span class="main-color-text">${{cartTotal}}</span>
         </div>
       </div>
 
 
       <!-- Shopping cart items! yay -->
       <ul class="shopping-cart-items">
-        <li class="clearfix">
-          <figure class="image is-64x64">
-            <img src="./assets/img/icons/ball.jpeg" alt="item1" />
-          </figure>
-          <span class="item-name">Ball</span>
-          <span class="item-price">$849.9</span>
-          <span class="item-quantity">Quantity: 01</span>
-        </li>
-
-        <li class="clearfix">
-          <figure class="image is-64x64">
-            <img src="./assets/img/icons/Collar.jpg" alt="item2" />
-          </figure>
-          <span class="item-name">Kong</span>
-          <span class="item-price">$1,249.99</span>
-          <span class="item-quantity">Quantity: 01</span>
-        </li>
-
-        <li class="clearfix">
-          <figure class="image is-64x64">
-            <img src="./assets/img/icons/hueso.jpg" alt="item3" />
-          </figure>
-          <span class="item-name">Tug</span>
-          <span class="item-price">$129.99</span>
-          <span class="item-quantity">Quantity: 01</span>
-        </li>
+        {{#each cartItems}}
+        {{!-- {{this.dataValues.name}} --}}
+        {{> products/cart-block Cvalues=this.dataValues}}
+        {{/each}}
       </ul>
 
-      <a href="#" class="button">Checkout</a>
     </div>
     <!--end shopping-cart -->
   </div>
@@ -109,3 +92,4 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
   crossorigin="anonymous"></script>
 <script src="./assets/js/customer.js"></script>
+<script src="./assets/js/cart.js"></script>
