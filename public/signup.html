@@ -16,7 +16,7 @@
 <body>
   <nav class="navbar">
     <div id="logo">
-      <a href="#">
+      <a href="/">
         <img src="./img/logo.png" alt="Doggo" class="img"/>
       </a>
     </div>
@@ -29,43 +29,43 @@
               <div class="field">
                 <label class="label">Username</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-success" id="name" type="text" placeholder="Username">
+                  <input class="input is-focused" id="name" type="text" placeholder="Username">
                   <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                   </span>
                   <span class="icon is-small is-right">
-                    <i class="fas fa-check"></i>
+                    <i class="" id ="iconClass"></i>
                   </span>
                 </div>
-                <p class="help is-success hide-error">This username is available</p>
+                <p class="is-size-5 invalid help is-danger userExist"></p>
               </div>
               
               <div class="field">
                 <label class="label">Password</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-danger" id="password" type="text" placeholder="Password">
+                  <input class="input is-focused" id="password" type="password" placeholder="Password">
                   <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                   </span>
                   <span class="icon is-small is-right">
-                    <i class="fas fa-exclamation-triangle"></i>
+                    <i class="" id ="iconClass"></i>
                   </span>
                 </div>
-                <p class="help is-danger hide-error">This password is invalid</p>
+                <p class="is-size-5 invalid help is-danger wrongPassword"></p>
               </div>
 
               <div class="field">
                 <label class="label">Address</label>
                 <div class="control has-icons-left has-icons-right">
-                  <input class="input is-danger" id="address" placeholder="Address Input">
+                  <input class="input is-focused" id="address" placeholder="Address Input">
                   <span class="icon is-small is-left">
-                    <i class="fas fa-lock"></i>
+                    <i class="fas fa-home"></i>
                   </span>
                   <span class="icon is-small is-right">
-                    <i class="fas fa-exclamation-triangle"></i>
+                    <i class="" id ="iconClass"></i>
                   </span>
                 </div>
-                <p class="help is-success">This address is invalid</p>
+                <p class="is-size-5 invalid help is-danger wrongAddress"></p>
               </div>
               
               <div class="field">
@@ -79,13 +79,18 @@
                   </div>
                 </div>
               </div>
-              
+
+              <div class="field">
+                <label class="label has-text-success successRegister"></label>
+                <a class="startApp" href="/"></a>
+              </div>
+
               <div class="field is-grouped">
                 <div class="control">
-                  <button class="button is-link submit newUser">Submit</button>
+                  <button class="button is-danger submit newUser">Submit</button>
                 </div>
                 <div class="control">
-                  <button class="button is-link is-light cancel">Cancel</button>
+                  <button class="button is-link is-light cancel"><a href="/">Cancel</a></button>
                 </div>
               </div>
           </div>
