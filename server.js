@@ -20,7 +20,7 @@ app.use(express.json());
 
 // Static directory
 // const publicPath = path.join(__dirname, '/public');
-app.use(express.static(__dirname +"/public"));
+app.use(express.static("public"));
 
 // Routes
 // =============================================================
