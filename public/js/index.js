@@ -45,13 +45,18 @@ $(document).ready(function () {
       userType: $("#type").val().trim(),
     };
     console.log("user sign up clicked", userSignup);
+      $(".wrongPassword").text("");
+        $("#password").attr("class","input is-focused");
+        $(".wrongAddress").text("");
+        $("#address").attr("class","input is-focused");
 
     if(userSignup.userPassword.length<8){
       $(".wrongPassword").text("Your password must be at least 8 characters");
         $("#password").addClass("is-danger");
         $("#iconClass").addClass("fas fa-exclamation-triangle");
         return
-    } else if(userSignup.userAddress.length<1){
+    } 
+    if(userSignup.userAddress.length<1){
       $(".wrongAddress").text("Your address cannot be blank");
         $("#address").addClass("is-danger");
         $("#iconClass").addClass("fas fa-exclamation-triangle");
@@ -70,10 +75,12 @@ $(document).ready(function () {
         console.log("User already exist, try: ", newUser);
         var suggest = "User already exist, try: " + newUser;
         $(".userExist").text(suggest);
-        $("#name").addClass("is-danger");
+        $("#name").attr("class","input is-danger");
         $("#iconClass").addClass("fas fa-exclamation-triangle");
       } else {
         console.log("User registered succesfuly");
+        $(".userExist").text("");
+        $("#name").attr("class","input is-focused");
         $(".successRegister").text("Your user was created succesfully!")
         $(".startApp").text("Go to Sign In!")
       }
